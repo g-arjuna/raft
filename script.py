@@ -1,6 +1,7 @@
 import PyPDF2
 import requests
 import csv
+import shutil
 import json
 import os
 
@@ -14,51 +15,54 @@ def extract_text_from_pdf(pdf_path):
         return text
 
 # Function to generate questions and answers using the LLAMA model
-def generate_qa(text, model_url, num_questions=10):
-    chunk_size = 5000  # Adjust based on your model's token limit
-    text_chunks = [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
-    
+def generate_qa(text, model_url, models, num_questions=15 ):
+    print(text)
+    for model in models:
+        print(model)
+        chunk_size = 5000  # Adjust based on your model's token limit
+        text_chunks = [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
+        
 
-    for chunk in text_chunks:
-        questions_answers = []
-        # Formulate the prompt
-        prompt = (
-            f"Read the following text and generate {num_questions} pairs of questions and answers. "
-            f"Generate randomized questions about the data to form a dataset being used to fine-tune a model"
-            f"Make your answers verbose to include all the details about the questions you generrate"      
-            f"Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
-            f"Make sure your questions are like this:\n"
-            f"Q: What is the purpose of Reverse Filter ports when configuring filters in Cisco ACI?\n"
-            f"A: Reverse Filter ports should be used always when Apply Both Directions is enabled, and they deploy exactly as defined for both consumer-to-provider and provider-to-consumer directions with source and destination ports reversed\n"
+        for chunk in text_chunks:
             
-            f"Ensure the questions are clear and the answers are explicitly found in the text. Text:\n\n{chunk}"
-            f"Format each question with a 'Q: ' prefix and each answer with an 'A: ' prefix on the next line. Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
-        )
-        data = {
-            "model" : "llama3.2:3b-instruct-fp16",
-            "prompt": prompt,
-            "stream": False,
-            "keep_alive": 0
-        }
-        # Send a request to the LLAMA model
-        headers = {"Content-Type": "application/json"}
-        
-        response = requests.post(model_url, headers=headers, json=data)
-        response.raise_for_status()
-        results = response.json().get('response', '')
-        lines = results.strip().split("\n")
-        formatted_pairs = []
-        question = None
-        for line in lines:
-            if line.startswith("Q") and ":" in line:
-                question = line.split(":", 1)[1].strip()  # Extract question
-            elif line.startswith("A") and question:
-                answer = line.split(":", 1)[1].strip()  # Extract answer
-                formatted_pairs.append([question, answer])  # Append as list of [question, answer]
-                question = None  # Reset question for the next pair
-        save_to_csv(formatted_pairs, "questions_answers.csv")
-        
-        
+            # Formulate the prompt
+            prompt = (
+                f"Read the following text and generate {num_questions} pairs of questions and answers. "
+                f"Generate randomized questions about the data to form a dataset being used to fine-tune a model"
+                f"Make your answers verbose to include all the details about the questions you generrate"      
+                f"Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
+                f"Make sure your questions are like this:\n"
+                f"Q: What is the purpose of Reverse Filter ports when configuring filters in Cisco ACI?\n"
+                f"A: Reverse Filter ports should be used always when Apply Both Directions is enabled, and they deploy exactly as defined for both consumer-to-provider and provider-to-consumer directions with source and destination ports reversed\n"
+                
+                f"Ensure the questions are clear and the answers are explicitly found in the text. Text:\n\n{chunk}"
+                f"Format each question with a 'Q: ' prefix and each answer with an 'A: ' prefix on the next line. Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
+            )
+            data = {
+                "model" : model,
+                "prompt": prompt,
+                "stream": False,
+                "keep_alive": 0
+            }
+            # Send a request to the LLAMA model
+            headers = {"Content-Type": "application/json"}
+            
+            response = requests.post(model_url, headers=headers, json=data)
+            response.raise_for_status()
+            results = response.json().get('response', '')
+            print(results)
+            lines = results.strip().split("\n")
+            formatted_pairs = []
+            question = None
+            for line in lines:
+                if line.startswith("Q") and ":" in line:
+                    question = line.split(":", 1)[1].strip()  # Extract question
+                elif line.startswith("A") and question:
+                    answer = line.split(":", 1)[1].strip()  # Extract answer
+                    formatted_pairs.append([question, answer])  # Append as list of [question, answer]
+                    question = None  # Reset question for the next pair
+            save_to_csv(formatted_pairs, "questions_answers.csv")
+            
         
         
     return True
@@ -94,20 +98,21 @@ def save_to_csv(questions_answers, filename="output.csv", mode='a'):
 if __name__ == "__main__":
     # File paths
     folder_path = "docs/"
+    processed_folder_path = "processed-pdf/"
     pdf_files = [file for file in os.listdir(folder_path) if file.lower().endswith('.pdf')]
     
     output_csv_path = "questions_answers.csv"
     model_url = "http://localhost:11434/api/generate"  # Replace with your Ollama model's local URL
-
+    models = [ "llama3.2:latest" , "gemma2" ]
     # Extract text from PDF
     for pdf in pdf_files:
-        pdf_text = extract_text_from_pdf(f"{folder_path}{pdf}")
-        qa_pairs = generate_qa(pdf_text, model_url)
+        pdf_path = os.path.join(folder_path, pdf)
+        pdf_text = extract_text_from_pdf(pdf_path)
+        qa_pairs = generate_qa(pdf_text, model_url, models)
 
-    # Generate questions and answers
-    
-
-    
-    
+        # Move the processed file to the processed-pdf folder
+        processed_pdf_path = os.path.join(processed_folder_path, pdf)
+        shutil.move(pdf_path, processed_pdf_path)
+        print(f"Processed {pdf} and moved to {processed_folder_path}")
 
     print(f"Questions and answers saved to {output_csv_path}")
