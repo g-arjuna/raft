@@ -1,0 +1,8 @@
+{"time":"2024-11-16T23:10:23.176044+05:30","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-16T23:10:23.176085+05:30","level":"INFO","msg":"created symlink","path":"/Users/arjganes/raft/wandb/offline-run-20241116_231023-scon8suu/logs/debug-core.log"}
+{"time":"2024-11-16T23:10:23.293085+05:30","level":"INFO","msg":"created new stream","id":"scon8suu"}
+{"time":"2024-11-16T23:10:23.293136+05:30","level":"INFO","msg":"stream: started","id":"scon8suu"}
+{"time":"2024-11-16T23:10:23.293191+05:30","level":"INFO","msg":"sender: started","stream_id":"scon8suu"}
+{"time":"2024-11-16T23:10:23.293156+05:30","level":"INFO","msg":"handler: started","stream_id":"scon8suu"}
+{"time":"2024-11-16T23:10:23.293176+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"scon8suu"}
+{"time":"2024-11-16T23:10:23.298245+05:30","level":"INFO","msg":"Starting system monitor"}

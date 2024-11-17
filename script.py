@@ -26,17 +26,38 @@ def generate_qa(text, model_url, models, num_questions=15 ):
         for chunk in text_chunks:
             
             # Formulate the prompt
+            # prompt = (
+            #     f"Read the following text and generate {num_questions} pairs of questions and answers. "
+            #     f"Generate randomized questions about the data to form a dataset being used to fine-tune a model"
+            #     f"Make your answers verbose to include all the details about the questions you generrate"      
+            #     f"Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
+                
+            #     f"Make sure your questions are like this:\n"
+            #     f"Q: What is the purpose of Reverse Filter ports when configuring filters in Cisco ACI?\n"
+            #     f"A: Reverse Filter ports should be used always when Apply Both Directions is enabled, and they deploy exactly as defined for both consumer-to-provider and provider-to-consumer directions with source and destination ports reversed\n"
+                
+            #     f"Ensure the questions are clear and the answers are explicitly found in the text. Text:\n\n{chunk}"
+            #     f"Format each question with a 'Q: ' prefix and each answer with an 'A: ' prefix on the next line. Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
+            # )
             prompt = (
                 f"Read the following text and generate {num_questions} pairs of questions and answers. "
-                f"Generate randomized questions about the data to form a dataset being used to fine-tune a model"
-                f"Make your answers verbose to include all the details about the questions you generrate"      
-                f"Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
-                f"Make sure your questions are like this:\n"
-                f"Q: What is the purpose of Reverse Filter ports when configuring filters in Cisco ACI?\n"
-                f"A: Reverse Filter ports should be used always when Apply Both Directions is enabled, and they deploy exactly as defined for both consumer-to-provider and provider-to-consumer directions with source and destination ports reversed\n"
+                f"Ensure the questions and answers are clear, informative, and suitable for creating a high-quality dataset for fine-tuning a model.\n"
+                f"Focus on generating questions that are general and relevant to understanding the subject matter, avoiding those tied to specific examples, page numbers, table names, or other document-specific details.\n"
+                f"Each answer should be comprehensive, elaborating fully on the question without introducing unrelated details. Avoid generating hypothetical or speculative answers.\n"
                 
-                f"Ensure the questions are clear and the answers are explicitly found in the text. Text:\n\n{chunk}"
-                f"Format each question with a 'Q: ' prefix and each answer with an 'A: ' prefix on the next line. Only include questions that can be answered based on the given data. Do not include questions without answers.\n"
+                f"Ensure the questions follow this format:\n"
+                f"Q: What is the purpose of Reverse Filter ports when configuring filters in Cisco ACI?\n"
+                f"A: Reverse Filter ports should be used always when Apply Both Directions is enabled, and they deploy exactly as defined for both consumer-to-provider and provider-to-consumer directions with source and destination ports reversed.\n"
+                
+                f"Key requirements:\n"
+                f"- Include only questions that can be explicitly answered based on the provided text.\n"
+                f"- Avoid questions that require context beyond the given text or that are overly tied to the document's format or examples.\n"
+                f"- Ensure that the generated questions facilitate learning and understanding of the topic.\n"
+                
+                f"Text:\n\n{chunk}\n"
+                f"Format the output as follows:\n"
+                f"Q: <Your question>\n"
+                f"A: <Your detailed answer>\n"
             )
             data = {
                 "model" : model,
@@ -103,7 +124,7 @@ if __name__ == "__main__":
     
     output_csv_path = "questions_answers.csv"
     model_url = "http://localhost:11434/api/generate"  # Replace with your Ollama model's local URL
-    models = [ "llama3.2:latest" , "gemma2" ]
+    models = [ "llama3.2:latest", "llama3.2:3b-instruct-fp16" , "gemma2:latest"]
     # Extract text from PDF
     for pdf in pdf_files:
         pdf_path = os.path.join(folder_path, pdf)

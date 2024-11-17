@@ -1,0 +1,15 @@
+{"time":"2024-11-16T22:27:00.464886+05:30","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-16T22:27:00.464942+05:30","level":"INFO","msg":"created symlink","path":"/Users/arjganes/raft/wandb/offline-run-20241116_222700-90higzeb/logs/debug-core.log"}
+{"time":"2024-11-16T22:27:00.576877+05:30","level":"INFO","msg":"created new stream","id":"90higzeb"}
+{"time":"2024-11-16T22:27:00.576957+05:30","level":"INFO","msg":"stream: started","id":"90higzeb"}
+{"time":"2024-11-16T22:27:00.576996+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"90higzeb"}
+{"time":"2024-11-16T22:27:00.576971+05:30","level":"INFO","msg":"handler: started","stream_id":"90higzeb"}
+{"time":"2024-11-16T22:27:00.577002+05:30","level":"INFO","msg":"sender: started","stream_id":"90higzeb"}
+{"time":"2024-11-16T22:27:00.580758+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-16T22:27:02.854508+05:30","level":"INFO","msg":"stream: closing","id":"90higzeb"}
+{"time":"2024-11-16T22:27:02.854556+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-16T22:27:02.854905+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-16T22:27:02.855032+05:30","level":"INFO","msg":"handler: closed","stream_id":"90higzeb"}
+{"time":"2024-11-16T22:27:02.855044+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"90higzeb"}
+{"time":"2024-11-16T22:27:02.855046+05:30","level":"INFO","msg":"sender: closed","stream_id":"90higzeb"}
+{"time":"2024-11-16T22:27:02.855133+05:30","level":"INFO","msg":"stream: closed","id":"90higzeb"}

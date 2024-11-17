@@ -1,0 +1,15 @@
+{"time":"2024-11-16T22:52:19.037592+05:30","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-16T22:52:19.037635+05:30","level":"INFO","msg":"created symlink","path":"/Users/arjganes/raft/wandb/offline-run-20241116_225218-70wiosrp/logs/debug-core.log"}
+{"time":"2024-11-16T22:52:19.157528+05:30","level":"INFO","msg":"created new stream","id":"70wiosrp"}
+{"time":"2024-11-16T22:52:19.157724+05:30","level":"INFO","msg":"stream: started","id":"70wiosrp"}
+{"time":"2024-11-16T22:52:19.157735+05:30","level":"INFO","msg":"handler: started","stream_id":"70wiosrp"}
+{"time":"2024-11-16T22:52:19.157767+05:30","level":"INFO","msg":"sender: started","stream_id":"70wiosrp"}
+{"time":"2024-11-16T22:52:19.157766+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"70wiosrp"}
+{"time":"2024-11-16T22:52:19.163246+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-16T22:52:20.603412+05:30","level":"INFO","msg":"stream: closing","id":"70wiosrp"}
+{"time":"2024-11-16T22:52:20.603457+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-16T22:52:20.603757+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-16T22:52:20.603867+05:30","level":"INFO","msg":"handler: closed","stream_id":"70wiosrp"}
+{"time":"2024-11-16T22:52:20.603877+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"70wiosrp"}
+{"time":"2024-11-16T22:52:20.603887+05:30","level":"INFO","msg":"sender: closed","stream_id":"70wiosrp"}
+{"time":"2024-11-16T22:52:20.60399+05:30","level":"INFO","msg":"stream: closed","id":"70wiosrp"}

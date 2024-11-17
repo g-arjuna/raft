@@ -1,0 +1,15 @@
+{"time":"2024-11-16T23:08:20.552974+05:30","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-16T23:08:20.553023+05:30","level":"INFO","msg":"created symlink","path":"/Users/arjganes/raft/wandb/offline-run-20241116_230820-zfoonx8d/logs/debug-core.log"}
+{"time":"2024-11-16T23:08:20.666382+05:30","level":"INFO","msg":"created new stream","id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:20.66642+05:30","level":"INFO","msg":"stream: started","id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:20.666464+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:20.666524+05:30","level":"INFO","msg":"sender: started","stream_id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:20.666488+05:30","level":"INFO","msg":"handler: started","stream_id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:20.671498+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-16T23:08:22.403572+05:30","level":"INFO","msg":"stream: closing","id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:22.403594+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-16T23:08:22.403927+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-16T23:08:22.40407+05:30","level":"INFO","msg":"handler: closed","stream_id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:22.404085+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:22.404093+05:30","level":"INFO","msg":"sender: closed","stream_id":"zfoonx8d"}
+{"time":"2024-11-16T23:08:22.404177+05:30","level":"INFO","msg":"stream: closed","id":"zfoonx8d"}

@@ -1,3 +1,11 @@
 PyPDF2
 requests
-
+git+https://github.com/stanfordnlp/pyreft.git
+langchain
+langchain_community
+langchain_experimental
+chromadb
+InstructorEmbedding 
+transformers
+sentence-transformers==2.2.2
+nnsight

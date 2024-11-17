@@ -1,0 +1,38 @@
+{
+  "os":  "macOS-15.1-arm64-arm-64bit",
+  "python":  "3.11.10",
+  "startedAt":  "2024-11-16T13:52:15.638280Z",
+  "program":  "/Users/arjganes/raft/fine_tuning.py",
+  "codePath":  "fine_tuning.py",
+  "git":  {
+    "remote":  "https://github.com/g-arjuna/raft.git",
+    "commit":  "618f64a6d8b3b21e27bbe0c155dcb970b29528ee"
+  },
+  "root":  "/Users/arjganes/raft",
+  "host":  "ARJGANES-M-4RVQ",
+  "username":  "arjganes",
+  "executable":  "/opt/anaconda3/envs/pyai/bin/python",
+  "codePathLocal":  "fine_tuning.py",
+  "cpu_count":  12,
+  "cpu_count_logical":  12,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "169202819072"
+    }
+  },
+  "memory":  {
+    "total":  "19327352832"
+  },
+  "cpu":  {
+    "count":  12,
+    "countLogical":  12
+  },
+  "apple":  {
+    "name":  "Apple M3 Pro",
+    "ecpuCores":  6,
+    "pcpuCores":  6,
+    "gpuCores":  18,
+    "memoryGb":  18
+  }
+}

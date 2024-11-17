@@ -1,0 +1,15 @@
+{"time":"2024-11-16T19:22:15.875158+05:30","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-11-16T19:22:15.87519+05:30","level":"INFO","msg":"created symlink","path":"/Users/arjganes/raft/wandb/offline-run-20241116_192215-51xrp513/logs/debug-core.log"}
+{"time":"2024-11-16T19:22:16.29942+05:30","level":"INFO","msg":"created new stream","id":"51xrp513"}
+{"time":"2024-11-16T19:22:16.299485+05:30","level":"INFO","msg":"stream: started","id":"51xrp513"}
+{"time":"2024-11-16T19:22:16.299567+05:30","level":"INFO","msg":"handler: started","stream_id":"51xrp513"}
+{"time":"2024-11-16T19:22:16.299576+05:30","level":"INFO","msg":"sender: started","stream_id":"51xrp513"}
+{"time":"2024-11-16T19:22:16.299574+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"51xrp513"}
+{"time":"2024-11-16T19:22:16.303275+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-11-16T19:22:19.816402+05:30","level":"INFO","msg":"stream: closing","id":"51xrp513"}
+{"time":"2024-11-16T19:22:19.816427+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-11-16T19:22:19.816747+05:30","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-11-16T19:22:19.816856+05:30","level":"INFO","msg":"handler: closed","stream_id":"51xrp513"}
+{"time":"2024-11-16T19:22:19.816862+05:30","level":"INFO","msg":"writer: Close: closed","stream_id":"51xrp513"}
+{"time":"2024-11-16T19:22:19.816871+05:30","level":"INFO","msg":"sender: closed","stream_id":"51xrp513"}
+{"time":"2024-11-16T19:22:19.81696+05:30","level":"INFO","msg":"stream: closed","id":"51xrp513"}
